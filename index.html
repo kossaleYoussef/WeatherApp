@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="assets/images/icons/favicon96x96.ico">
+    <meta name="author" content="Kossale Youssef">
+    <meta name="description" content="A weather app built with javascript using APIs and local Storage">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="app-loader" class="lds-ellipsis center ">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <main class="display-none">
+
+        <div class="AppContent">
+            <button class="open-menu-btn icon-sm-28">
+                <img src="assets/images/icons/menu.png" alt="">
+            </button>
+            <section id="current-day-weather-container">
+                <h1 class="location-label">Open the menu To start</h1>
+                <div class="flex-container" id="temperature-summary-container">
+                    <div>
+                        <img id="currentlyIcon" alt="">
+                    </div>
+                    <div>
+                        <h1 id="degrees-label"></h1>
+                        <p id="summary-label"></p>
+                    </div>
+                </div>
+
+                <div class="flex-container" id="humidity-wind-container">
+                    <div>
+                        <img class="icon-sm-30" src="assets/images/icons/humidity.png" alt="">
+                        <span id="humidity-label"></span>
+                    </div>
+                    <div>
+                        <img class="icon-sm-30" src="assets/images/icons/wind-speed-flag.png" alt="">
+                        <span id="wind-label"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lower-panel">
+                <button id="toggle-hourly-weather" class="ripple center-x">
+                    <img src="assets/images/icons/up-arrow.png" alt="">
+                </button>
+
+                <!-- Daily Weather -->
+                <div id="daily-weather-wrapper" class="lower-panel-body">
+                    <!-- Day 1 -->
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+                    <!-- Day 2 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 7 -->
+
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Hourly Weather -->
+                <div id="hourly-weather-wrapper" class="lower-panel-body" visible="false">
+                    <div class="flex-container weather-box ">
+                        <div></div>
+                        <div class="flex-container">
+                            <div>
+                                <p></p>
+                            </div>
+                            <div><img class="icon-sm-30" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Sliding Menu -->
+        <div id="menu-container">
+            <button id="close-menu-btn" class="ripple">&#10006;</button>
+            <div>
+                <div id="add-location-wraper">
+                    <input placeholder="City name" type="text" id="location-input"><br>
+                    <button id="add-city-btn" class="ripple disabled" disabled>Add</button>
+                    <h1 class="CityName"></h1>
+                </div>
+
+                <div id="saved-cities-wrapper">
+                    <!--
+                        <div class="flex-container saved-city-box">
+                        <div>
+                            <h1></h1>
+                        </div>
+                        <div>
+                            <button class="ripple remove-saved-city"></button>
+                        </div>
+                    </div>
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="Js/main.js"></script>
+</body>
+
+</html>

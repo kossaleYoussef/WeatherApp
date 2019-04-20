@@ -1,0 +1,636 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/* ================================ CSS Reset  ================================*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ================================ Ripple CSS ================================ */
+.ripple {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  -webkit-transform: scale(10, 10);
+          transform: scale(10, 10);
+  opacity: 0;
+  -webkit-transition: opacity 1s, -webkit-transform .5s;
+  transition: opacity 1s, -webkit-transform .5s;
+  transition: transform .5s, opacity 1s;
+  transition: transform .5s, opacity 1s, -webkit-transform .5s;
+}
+
+.ripple:active:after {
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  opacity: .2;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+/* ================================ Loader ================================ */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: black;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  -webkit-animation: lds-ellipsis1 0.6s infinite;
+          animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  -webkit-animation: lds-ellipsis3 0.6s infinite;
+          animation: lds-ellipsis3 0.6s infinite;
+}
+
+@-webkit-keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(19px, 0);
+            transform: translate(19px, 0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(19px, 0);
+            transform: translate(19px, 0);
+  }
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.center-x {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.center-y {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.display-none {
+  display: none;
+}
+
+.icon-sm-25 {
+  width: 25px;
+}
+
+.icon-sm-28 {
+  width: 28px;
+}
+
+.icon-sm-30 {
+  width: 30px;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-container > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+}
+
+#temperature-summary-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#temperature-summary-container > div:nth-child(2) {
+  text-align: center;
+}
+
+#temperature-summary-container #degrees-label {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#temperature-summary-container #summary-label {
+  font-size: 20px;
+}
+
+html,
+body,
+main {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  background-image: url("../assets/images/bg-images/cloudy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.AppContent {
+  width: 300px;
+  height: 550px;
+  background-color: rgba(0, 0, 0, 0.644);
+  position: relative;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  overflow: hidden;
+}
+
+.open-menu-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 4;
+}
+
+.open-menu-btn img {
+  width: 25px;
+  height: 18px;
+}
+
+#current-day-weather-container {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  padding: 80px 30px 20px 30px;
+  color: white;
+}
+
+#current-day-weather-container .location-label {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 50px;
+  letter-spacing: 1.3px;
+}
+
+#humidity-wind-container {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  left: 0;
+}
+
+#humidity-wind-container > div img {
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+}
+
+#humidity-wind-container > div span {
+  font-size: 18px;
+}
+
+.lower-panel {
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: white;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.lower-panel #toggle-hourly-weather {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+  background-color: #F08080;
+  z-index: 3;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.lower-panel #toggle-hourly-weather img {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.lower-panel .lower-panel-body {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 30px 20px;
+}
+
+.lower-panel .lower-panel-body:-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+.lower-panel .lower-panel-body .weather-box {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.lower-panel .lower-panel-body .weather-box > div:last-child {
+  text-align: right;
+}
+
+.lower-panel .lower-panel-body .weather-box > div:last-child > div:last-child {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5 0.5 0px;
+          flex: 0.5 0.5 0;
+}
+
+.lower-panel .lower-panel-body .current-day-of-the-week::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  left: -15px;
+  top: calc(50% - 5px);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: red;
+}
+
+.lower-panel #hourly-weather-wrapper {
+  background-color: rgba(255, 255, 255, 0.562);
+  color: rgba(0, 0, 0, 0.582);
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#menu-container {
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100%;
+  z-index: 5;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.904);
+}
+
+#menu-container div {
+  width: 100%;
+  height: 100%;
+}
+
+#menu-container #close-menu-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  font-size: 22px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#menu-container #add-location-wraper {
+  padding: 80px 20px 0 20px;
+  text-align: center;
+  height: 50%;
+}
+
+#menu-container #add-location-wraper #location-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #F08080;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  letter-spacing: 1.2px;
+}
+
+#menu-container #add-location-wraper #add-city-btn {
+  padding: 8px 30px;
+  margin-bottom: 60px;
+  color: white;
+  background-color: #F08080;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#menu-container #add-location-wraper #add-city-btn:hover {
+  background-color: #ec5c5c;
+}
+
+#menu-container #add-location-wraper .disabled {
+  background-color: white !important;
+  color: gray !important;
+  pointer-events: none;
+}
+
+#menu-container #add-location-wraper .CityName {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#menu-container #saved-cities-wrapper {
+  height: 50%;
+  width: 100%;
+  padding: 20px;
+}
+
+#menu-container #saved-cities-wrapper .saved-city-box {
+  border-bottom: 2px solid #F08080;
+  position: relative;
+  height: 30px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+#menu-container #saved-cities-wrapper .saved-city-box .remove-saved-city {
+  color: #F08080;
+  border: 2px solid #F08080;
+  border-radius: 100%;
+  position: absolute;
+  right: 0px;
+  height: 20px;
+  width: 20px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1400px) {
+  .AppContent {
+    padding: 2vw;
+  }
+}
+/*# sourceMappingURL=main.css.map */
